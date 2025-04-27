@@ -77,23 +77,26 @@ const DigitalHealthScore = () => {
 
           <div className="flex-1 h-64">
             <ChartContainer config={chartConfig}>
-              <RadialBarChart 
-                innerRadius="30%" 
-                outerRadius="100%" 
-                data={data} 
-                startAngle={180}
-                endAngle={-180}
-                barSize={12}
-              >
-                <RadialBar 
-                  background
-                  dataKey="value" 
-                  cornerRadius={10}
-                  label={{ position: 'insideStart', fill: '#FFFFFF', fontWeight: 'bold' }}
-                />
-                <ChartTooltip content={<ChartTooltipContent />} />
-              </RadialBarChart>
-              <ChartLegend content={<ChartLegendContent />} />
+              {/* Wrap the children in a React fragment to ensure we pass a single ReactElement */}
+              <>
+                <RadialBarChart 
+                  innerRadius="30%" 
+                  outerRadius="100%" 
+                  data={data} 
+                  startAngle={180}
+                  endAngle={-180}
+                  barSize={12}
+                >
+                  <RadialBar 
+                    background
+                    dataKey="value" 
+                    cornerRadius={10}
+                    label={{ position: 'insideStart', fill: '#FFFFFF', fontWeight: 'bold' }}
+                  />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                </RadialBarChart>
+                <ChartLegend content={<ChartLegendContent />} />
+              </>
             </ChartContainer>
           </div>
         </div>
